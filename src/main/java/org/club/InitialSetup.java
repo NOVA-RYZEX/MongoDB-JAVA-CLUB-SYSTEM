@@ -2,6 +2,6 @@ package org.club;
 
 import javax.swing.*;
 
-public class SetUP extends JFrame {
+public class InitialSetup extends JFrame {
 
 }
