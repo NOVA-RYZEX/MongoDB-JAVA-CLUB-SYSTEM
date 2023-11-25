@@ -1,8 +1,12 @@
 package org.club;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        /* TODO: Implement feature XYZ - Issue #123 */
-        System.out.println("Hello world!");
+        /*Load the required resources*/
+        new ResourceLoader();
+        /*TODO: make program start with Login*/
+        SwingUtilities.invokeLater(Login::new);
     }
 }
