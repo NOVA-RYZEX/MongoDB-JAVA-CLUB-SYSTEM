@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class Constant {
+    /*Colors*/
+   static Color btnColor = new Color(90, 90, 189);
     /**
      * Helper method to resize an ImageIcon
      *
@@ -29,9 +31,10 @@ public class Constant {
      */
     public static void setJButton(JButton button) {
         button.setPreferredSize(new Dimension(80, 40));
-        button.setOpaque(false); // Set the button to be non-opaque
+//        button.setOpaque(false); // Set the button to be non-opaque
         button.setContentAreaFilled(false); // Set the content area to be non-filled
         button.setBorderPainted(false); // Remove border painting
+        button.setForeground(btnColor);
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
