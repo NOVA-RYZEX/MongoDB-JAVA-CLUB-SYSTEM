@@ -10,29 +10,39 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
-class Constant {
+/**
+ * A utility class containing constants and helper methods for the sports club application.
+ */
+public class Constant {
     // Load environment variables from .env file
     static Dotenv dotenv = Dotenv.configure().load();
 
+    // MongoDB's connection details
     static String database = dotenv.get("MONGO_DATABASE");
     static String user = dotenv.get("MONGO_USER");
     static String password = dotenv.get("MONGO_PASSWORD");
     static String cluster = dotenv.get("MONGO_CLUSTER");
     // Create the MongoDB connection string
     static String connectionString = "mongodb+srv://" + user + ":" + password + "@" + cluster + "/" + database;
-    /*Colors*/
+
+    /* Colors */
     static Color btnColor = new Color(90, 90, 189);
 
+    /**
+     * Get the MongoDB connection string.
+     *
+     * @return MongoDB's connection string
+     */
     public static String getConnectionString() {
         return connectionString;
     }
 
     /**
-     * Helper method to resize an ImageIcon
+     * Helper method to resize an ImageIcon.
      *
-     * @param image  image to be set as icon
-     * @param width  width for the icon
-     * @param height height for the icon
+     * @param image  The image to be set as an icon.
+     * @param width  The width for the icon.
+     * @param height The height for the icon.
      * @return ImageIcon
      */
     static ImageIcon resizeIcon(ImageIcon image, int width, int height) {
@@ -41,9 +51,9 @@ class Constant {
     }
 
     /**
-     * set default look for all buttons
+     * Set default look for all buttons.
      *
-     * @param button button
+     * @param button The button to set the default look for.
      */
     public static void setJButton(JButton button) {
         button.setPreferredSize(new Dimension(80, 40));
@@ -66,6 +76,14 @@ class Constant {
         });
     }
 
+    /**
+     * Set up JFrame with default settings.
+     *
+     * @param frame  The JFrame to set up.
+     * @param title  The title of the frame.
+     * @param width  The width of the frame.
+     * @param height The height of the frame.
+     */
     public static void setUpJFrame(JFrame frame, String title, int width, int height) {
         /* Set up the login frame */
         frame.setTitle(title);
@@ -77,7 +95,13 @@ class Constant {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public static void lblAddMouseLister(JLabel label, JTextField textField) {
+    /**
+     * Add a mouse listener to a label for focusing on a text field.
+     *
+     * @param label     The label to add a mouse listener to.
+     * @param textField The text field to focus on when the label is clicked.
+     */
+    public static void lblAddMouseListener(JLabel label, JTextField textField) {
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -92,14 +116,14 @@ class Constant {
     }
 
     /**
-     * set NimbusLookAndFeel to a frame
+     * Set Nimbus Look and Feel to a frame.
      *
-     * @param frame frame to set look and feel
-     * @throws RuntimeException throws a runtime exceptions
+     * @param frame The frame to set the look and feel.
+     * @throws RuntimeException Throws a runtime exception if setting the look and feel fails.
      */
     public static void setLookAndFeel(JFrame frame) {
         try {
-            /*set look and feel*/
+            /* set look and feel */
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
             // Update the UI to use the chosen look and feel
             SwingUtilities.updateComponentTreeUI(frame);
@@ -110,13 +134,13 @@ class Constant {
     }
 
     /**
-     * set NimbusLookAndFeel to a frame
+     * Set icon for the frame.
      *
-     * @param frame frame to set icon
-     * @throws RuntimeException throws a runtime exceptions
+     * @param frame The frame to set the icon for.
+     * @throws RuntimeException Throws a runtime exception if setting the frame icon fails.
      */
     public static void setFrameIcon(JFrame frame) {
-        /*set icon for the frame*/
+        /* set icon for the frame */
         try {
             frame.setIconImage(ImageIO.read(new File("src/main/resources/images/club.png")));
         } catch (IOException e) {

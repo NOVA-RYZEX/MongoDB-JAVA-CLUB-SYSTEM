@@ -147,7 +147,7 @@ public class Login extends JFrame {
         lblUsername.setIcon(Constant.resizeIcon(ResourceLoader.userIcon, 60, 60));
         txtUsername = new JTextField();
         txtUsername.setBounds(75, 30, 400, 60);
-        Constant.lblAddMouseLister(lblUsername, txtUsername);
+        Constant.lblAddMouseListener(lblUsername, txtUsername);
 
         lblPassword = new JLabel();
         lblPassword.setBounds(10, 70, 120, 120);
@@ -155,7 +155,7 @@ public class Login extends JFrame {
         txtPassword = new JPasswordField();
         txtPassword.setBounds(75, 100, 400, 60);
         txtPassword.setEchoChar('*');
-        Constant.lblAddMouseLister(lblPassword, txtPassword);
+        Constant.lblAddMouseListener(lblPassword, txtPassword);
 
         chkShowPassword = new JCheckBox();
         chkShowPassword.setIcon(Constant.resizeIcon(ResourceLoader.hideIcon, 20, 20));
