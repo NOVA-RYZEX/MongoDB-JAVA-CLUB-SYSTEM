@@ -88,27 +88,34 @@ public class Login extends JFrame {
     }
 
     /**
-     * Authenticates a user against the admin collection in MongoDB.
+     * Authenticates a user against a specific collection in MongoDB.
      *
      * @param connectionString The MongoDB connection string.
      * @param enteredUsername  The username entered by the user.
      * @param enteredPassword  The password entered by the user.
+     * @param collectionName   The name of the collection to authenticate against.
      * @return True if the authentication is successful, false otherwise.
      */
-    public static boolean authenticateUser(String connectionString, String enteredUsername, String enteredPassword) {
+    public static boolean authenticateUser(String connectionString, String enteredUsername, String enteredPassword, String collectionName) {
         try {
             // Set up MongoClient settings
             MongoClient mongoClient = MongoClients.create(connectionString);
+
             // Access the 'sports_club_system' database
             MongoDatabase database = mongoClient.getDatabase("sports_club_system");
-            // Access the 'admin' collection
-            MongoCollection<Document> adminCollection = database.getCollection("admin");
+
+            // Access the specified collection
+            MongoCollection<Document> collection = database.getCollection(collectionName);
+
             // Create a query to find the user with the provided username and password
             Document query = new Document("username", enteredUsername).append("password", enteredPassword);
+
             // Execute the query
-            Document foundUser = adminCollection.find(query).first();
+            Document foundUser = collection.find(query).first();
+
             // Close the MongoClient when done
             mongoClient.close();
+
             // Check if the user was found
             return foundUser != null;
         } catch (Exception e) {
@@ -213,10 +220,20 @@ public class Login extends JFrame {
         btnLogin.addActionListener(initializeLoginProcess -> {
             String enteredUsername = getUsernameFromUI();
             String enteredPassword = getPasswordFromUI();
-            boolean loginSuccessful = authenticateUser(Constant.getConnectionString(), enteredUsername, enteredPassword);
-            if (loginSuccessful) {
-                JOptionPane.showMessageDialog(null, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            // Authenticate against the admin collection
+            boolean isAdmin = authenticateUser(Constant.getConnectionString(), enteredUsername, enteredPassword, "admin");
+
+            // Authenticate against the member collection
+            boolean isMember = authenticateUser(Constant.getConnectionString(), enteredUsername, enteredPassword, "member");
+
+            if (isAdmin) {
+                JOptionPane.showMessageDialog(null, "Admin login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 SwingUtilities.invokeLater(AdminDashboard::new);
+                this.dispose();
+            } else if (isMember) {
+                JOptionPane.showMessageDialog(null, "Member login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+//                SwingUtilities.invokeLater(MemberDashboard::new);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid credentials. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
