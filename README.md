@@ -54,8 +54,8 @@ transactions, and overall club performance.
    ```bash
    git clone https://github.com/Gideon-Yebei/MongoDB-JAVA-CLUB-SYSTEM.git
 2. Open the project in your preferred Java IDE.
-3. Set up the MySQL database and configure the connection details in the application.
-4. Run the application.
+3. Run the application.
+4. Default credentials `username: admin` and `password: admin`
 
 ## Usage
 
@@ -74,8 +74,7 @@ pull request.
 This project is licensed under the MIT License.
 
 
-<h1 align="center">Maringo Sports Club System With MongoDB Atlas</h1> 
-# Maringo Sports Club Management System
+<h1 align="center">Sports Club System With MongoDB Atlas Database</h1>
 
 ## Table of Contents
 
@@ -90,26 +89,34 @@ This project is licensed under the MIT License.
 
 ## Introduction
 
-Maringo Sports Club is an organization founded by Maringo County with the primary goal of nurturing and developing athletic talent among the youth in the county. The club offers a wide range of sports activities, encompassing swimming, hockey, lawn tennis, table tennis, darts, badminton, volleyball, basketball, netball, football, baseball, rugby, pool, chess, and draft. As part of the club's operations, it enrolls youths aged 12 to 35 in various sports activities, and during registration, the members provide detailed information about themselves. The club also operates a store where members can purchase sports equipment and other items. Additionally, each sports activity has a patron, and there are designated game captains responsible for equipment management and more.
-<br/>
-Technology we use: 
+Technology we use:
+
 - JAVA + JDBC library (MongoDB)
 - MongoDB Atlas ~ remote database
 - Intellij Idea Ultimate
 
 ## System Description
 
-The Maringo Sports Club Management System is designed to manage and streamline the club's operations effectively. It offers features and functionalities for various aspects of the club's activities, including:
+The Maringo Sports Club Management System is designed to manage and streamline the club's operations effectively.
+It
+offers features and functionalities for various aspects of the club's activities, including:
 
-1. **Membership Management**: The system maintains detailed records of club members, categorizing them into minors, middle group, and seniors based on their ages. It also stores information such as full name, gender, date of birth, and more.
+1. **Membership Management**: The system maintains detailed records of club members, categorizing them into minors,
+   middle group, and seniors based on their ages.
+   It also stores information such as full name, gender, date of birth,
+   and more.
 
 2. **Sports Activity Management**: The system keeps track of the various sports activities offered by the club.
 
-3. **Store Management**: The system manages sports equipment available for purchase, including their prices, initial stock levels, and maximum stock levels. It also tracks item purchases and reordering when stock levels drop to 20%.
+3. **Store Management**: The system manages sports equipment available for purchase, including their prices, initial
+   stock levels, and maximum stock levels.
+   It also tracks item purchases and reordering when stock levels drop to 20%.
 
 4. **Facilitation Fees**: The system records facilitation fees for sports events, which are payable by team members.
 
-5. **Financial Calculations**: It computes various financial aspects such as the total membership fees, discounted prices for item purchases exceeding Ksh 10,000, the total amount for items bought, surcharged fees for lost or damaged equipment, facilitation fees, patrons' commissions, and the total income for the club.
+5. **Financial Calculations**: It computes various financial aspects such as the total membership fees, discounted
+   prices for item purchases exceeding Ksh 10,000, the total amount for items bought, surcharged fees for lost or
+   damaged equipment, facilitation fees, patrons' commissions, and the total income for the club.
 
 6. **Reporting**: The system generates appropriate reports for club management and decision-making.
 
@@ -119,45 +126,63 @@ To run and use the Maringo Sports Club Management System, you will need the foll
 
 - **Java Development Kit (JDK)**: The system is developed in Java, so you need a compatible JDK to execute the code.
 
-- **Database (e.g., MariaDB/MySQL)**: The system uses a database to store and manage member data, sports activities, store items, facilitation fees, and other relevant information.
+- **Database (e.g., MariaDB/MySQL)**: The system uses a database to store and manage member data, sports activities,
+  store items, facilitation fees, and other relevant information.
 
-- **IDE (e.g., Eclipse, IntelliJ IDEA)**: An Integrated Development Environment is recommended for Java application development.
+- **IDE (e.g., Eclipse, IntelliJ IDEA)**: An Integrated Development Environment is recommended for Java application
+  development.
 
 - **Java Libraries (JDBC)**: Libraries for database connectivity are required to connect the system with the database.
 
-- **Dependencies (e.g., JDBC Driver for MariaDB/MySQL)**: Specific dependencies might be needed based on the database used.
+- **Dependencies (e.g., JDBC Driver for MariaDB/MySQL)**: Specific dependencies might be needed based on the database
+  used.
 
 ## System Design
 
-The system follows a modular design, with components for managing members, sports activities, store items, facilitation fees, and financial calculations. It also includes a graphical user interface (GUI) for user interaction.
+The system follows a modular design, with components for managing members, sports activities, store items, facilitation
+fees, and financial calculations.
+It also includes a graphical user interface (GUI) for user interaction.
 
 ### Database Schema
 
-A relational database schema is designed to store information about members, sports activities, store items, purchases, facilitation fees, patrons, game captains, and equipment surcharges.
+A NoSQL database schema is designed to store information about members, sports activities,
+store items, purchases, facilitation fees, patrons, game captains, and equipment surcharges.
 
-`coming soon`
+`MongoDB Atlas`
 
 ## Implementation
 
-The system is implemented using Java, utilizing JDBC for database connectivity. It incorporates object-oriented programming principles and follows best practices for code organization, including classes and methods for each system component. The GUI is built using Swing for user-friendly interaction.
+The system is implemented using Java, utilizing JDBC for database connectivity.
+It incorporates object-oriented
+programming principles and follows best practices for code organization, including classes and methods for each system
+component.
+The GUI is built using Swing for user-friendly interaction.
 
 ## Testing
 
-The system should undergo comprehensive testing, including unit testing and integration testing. Test cases should be developed to ensure the system functions correctly and meets the specified requirements. This involves testing membership management, sports activity management, store management, financial calculations, and reporting.
+The system should undergo comprehensive testing, including unit testing and integration testing.
+Test cases should be
+developed to ensure the system functions correctly and meets the specified requirements.
+This involves testing
+membership management, sports activity management, store management, financial calculations, and reporting.
 
 ## How to Run the System
 
 To run the system:
 
 1. Ensure you have a compatible JDK and an IDE.
-2. Create a database schema based on the provided schema.
-3. Configure the database connection parameters in the system code.
-4. Compile and execute the main application.
+2. Ensure you have a stable internet connection for database connectivity
+    - MongoDB Atlas as a database
+3. Compile and execute the main application.
 
-Please note that detailed instructions for running the system and configuring the database are provided within the code files.
+Please note that detailed instructions for running the system and configuring the database are provided within the
+system documentation.
 
 ## Future Enhancements
 
-For future improvements, include adding user authentication and authorization features for data security, enhancing the reporting capabilities, and expanding the system to support more advanced data analysis.
+For future improvements, include adding user authentication and authorization features for data security, enhancing the
+reporting capabilities, and expanding the system to support more advanced data analysis.
 
-By implementing the Maringo Sports Club Management System, the club aims to streamline its operations, manage resources efficiently, and provide an organized platform for promoting sports and talent development among the youth in Maringo County.
+By implementing the Sports Club Management System, the club aims to streamline its operations, manage resources
+efficiently, and provide an organized platform for promoting sports and talent development among the youth in Maringo
+County.
